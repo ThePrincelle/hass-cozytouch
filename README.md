@@ -1,4 +1,7 @@
 # Cozytouch
+
+Forked from [Cyr-ius/hass-cozytouch](https://github.com/Cyr-ius/hass-cozytouch).
+
 This a *custom component* for [Home Assistant](https://www.home-assistant.io/). 
 
 With COZYTOUCH, you control your thermal comfort solutions (heating, air conditioning, etc.) from where you want and when you want.
