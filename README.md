@@ -9,9 +9,7 @@ There is currently support for the following device types within Home Assistant:
 * [Climate sensor](#sensor) with preset mode
 * [Water Heater sensor](#presence-detection) with hvac mode , boost mode , away
 
-
-![GitHub release](https://img.shields.io/github/release/Cyr-ius/hass-cozytouch)
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
+![GitHub release](https://img.shields.io/github/release/ThePrincelle/hass-cozytouch)
 
 ## Configuration
 
