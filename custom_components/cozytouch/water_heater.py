@@ -216,7 +216,7 @@ class StandaloneCozytouchWaterHeater(WaterHeaterEntity):
     @property
     def device_state_attributes(self):
         """Return the device state attributes."""
-        attributes = {
+        """ attributes = {
             "energy_demand": self.water_heater.get_state(
                 DeviceState.OPERATING_MODE_CAPABILITIES_STATE, {}
             ).get("energyDemandStatus")
@@ -287,13 +287,29 @@ class StandaloneCozytouchWaterHeater(WaterHeaterEntity):
                 )
                 * 100
             ),
+        } """
+
+        attributes = {
+            
         }
 
+        """
+            "level_state": self.water_heater.get_state(
+                DeviceState.RSSI_LEVEL_STATE
+            ),
+            "power_consumption": self.water_heater.get_state(
+                DeviceState.ELECTRIC_ENERGY_CONSUMPTION_STATE
+            )
+        """
+
+        for attribute in dir(DeviceState):
+            attributes.update({attribute: self.water_heater.get_state(getattr(DeviceState, attribute))})
+
         # Remove attributes is empty
-        clean_attributes = {
-            k: v for k, v in attributes.items() if (v is not None and v != -1)
-        }
-        return clean_attributes
+        #clean_attributes = {
+        #    k: v for k, v in attributes.items() if (v is not None and v != -1)
+        #}
+        return attributes
 
     async def async_set_operation_mode(self, operation_mode):
         """Set new target operation mode."""
@@ -478,7 +494,7 @@ class StandaloneCozytouchAPCWaterHeater(WaterHeaterEntity):
     @property
     def device_state_attributes(self):
         """Return the device state attributes."""
-        attributes = {
+        """attributes = {
             "energy_demand": self.water_heater.get_state(
                 DeviceState.OPERATING_MODE_CAPABILITIES_STATE, {}
             ).get("energyDemandStatus")
@@ -519,13 +535,29 @@ class StandaloneCozytouchAPCWaterHeater(WaterHeaterEntity):
                 self.water_heater.get_state(DeviceState.NUM_SHOWER_REMAINING_STATE)
                 or -1
             ),
+        }"""
+
+        attributes = {
+            
         }
 
+        """
+            "level_state": self.water_heater.get_state(
+                DeviceState.RSSI_LEVEL_STATE
+            ),
+            "power_consumption": self.water_heater.get_state(
+                DeviceState.ELECTRIC_ENERGY_CONSUMPTION_STATE
+            )
+        """
+
+        for attribute in dir(DeviceState):
+            attributes.update({attribute: self.water_heater.get_state(getattr(DeviceState, attribute))})
+
         # Remove attributes is empty
-        clean_attributes = {
-            k: v for k, v in attributes.items() if (v is not None and v != -1)
-        }
-        return clean_attributes
+        #clean_attributes = {
+        #    k: v for k, v in attributes.items() if (v is not None and v != -1)
+        #}
+        return attributes
 
     async def async_set_operation_mode(self, operation_mode):
         """Set new target operation mode."""
